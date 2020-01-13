@@ -19,17 +19,17 @@ function endsMeet(values, n) {
     return empty;
   } else if (n === 0 || values.length === 1) {
     return values;
-  } else if (n > 0) {
-    let newArray = [];
-    for (i = 0; i <= n - 1; i++) {
-      newArray[i] = values[i];
-    }
-    let end;
-    for (x = values.length - n; x <= values.length; x++) {
-      end = values[x];
-      newArray.push(end);
-    }
-    return newArray;
+//  } else if (n > 0) {
+//    let newArray = [];
+//    for (i = 0; i <= n - 1; i++) {
+//      newArray[i] = values[i];
+//    }
+//    let end;
+//    for (x = values.length - n; x <= values.length; x++) {
+//      end = values[x];
+//      newArray.push(end);
+//    }
+//    return newArray;
   } else {
     return values;
   }
@@ -37,6 +37,26 @@ function endsMeet(values, n) {
 }
 
 function difference(numbers) {
+  if (!numbers || numbers.length < 1) {
+    return undefined;
+  } else if (numbers.length > 1) {
+    for (i = 0; i <= numbers.length - 1; i++) {
+      let number = numbers[i];
+      if (isNaN(number)) {
+        return undefined;
+      }
+    }
+    if (numbers.length === 1) {
+      return 0;
+    } else {
+      let largest = Math.max.apply(null, numbers);
+      let smallest = Math.min.apply(null, numbers);
+      let difference = largest - smallest;
+      return difference;
+    }
+  } else {
+    return undefined;
+  }
   // write your code here
 }
 
