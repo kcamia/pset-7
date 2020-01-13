@@ -14,10 +14,24 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-  if (!values || values.length === 0 || n < 0) {
-    return ;
-  } else if (n === 0) {
-
+  let empty = [];
+  if (!values || values.length === 0 || n < 0 || values.length < n) {
+    return empty;
+  } else if (n === 0 || values.length === 1) {
+    return values;
+  } else if (n > 0) {
+    let newArray = [];
+    for (i = 0; i <= n - 1; i++) {
+      newArray[i] = values[i];
+    }
+    let end;
+    for (x = values.length - n; x <= values.length; x++) {
+      end = values[x];
+      newArray.push(end);
+    }
+    return newArray;
+  } else {
+    return values;
   }
   // write your code here
 }
