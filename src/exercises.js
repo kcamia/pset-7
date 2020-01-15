@@ -92,6 +92,24 @@ function max(number) {
 }
 
 function middle(values) {
+  let empty = [];
+  if (!values || values.length < 3) {
+    return empty;
+  }
+  let check = values.length % 2;
+  if (check === 0) {
+    return empty;
+  }
+  let end = values.length - 1;
+  let start = end / 2;
+  let middle = values[start];
+  let beforeMiddle = values[start - 1];
+  let afterMiddle = values[start + 1];
+  let newArray = [];
+  newArray.push(beforeMiddle);
+  newArray.push(middle);
+  newArray.push(afterMiddle);
+  return newArray;
   // write your code here
 }
 
