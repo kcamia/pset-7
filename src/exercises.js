@@ -118,6 +118,16 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
+  if (!values || values.length < 1 || isNaN(x)) {
+    return false;
+  }
+  let testFirst = values[0];
+  let check;
+  for (i = 0; i <= values.length; i = i + 2) {
+    if (testFirst === values[i]) {
+
+    }
+  }
   // write your code here
 }
 
