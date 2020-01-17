@@ -142,15 +142,19 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
-  if (!values || values.length < 1 || isNaN(x)) {
+  if (!values || values.length < 1 || x !== undefined) {
     return false;
   }
-  let testFirst = values[0];
-  let check;
-  for (i = 0; i <= values.length; i = i + 2) {
-    if (testFirst === values[i]) {
-
+  let status = false;
+  for (i = 0; i < values.length - 1; i = i + 2) {
+    if (values[i] === x) {
+      status = true;
+    } else {
+      status = false;
     }
+  }
+  if (status === true) {
+    return true;
   }
   // write your code here
 }
