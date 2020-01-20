@@ -225,27 +225,24 @@ function balance(numbers) {
   if (numeral === false) {
     return false;
   }
-  let left = [];
-  let right = [];
-  let divide = (numbers.length - 2) / 2;
-  for (i = 0; i <= divide; i++) {
-    left.push(numbers[i])
+  let left = 0;
+  let right = 0;
+  let count = 0;
+  for (j = numbers.length; j > -1; j--) {
+    left = 0;
+    right = 0;
+    for (k = numbers.length - j; k > -1; k--) {
+      left = left + numbers[k];
+    }
+    for (h = numbers.length - 1; h > numbers.length - j; h--) {
+      right = right + numbers[h];
+    }
+    if (left === right) {
+      count = 1;
+      return true;
+    }
   }
-  let start = divide + 1;
-  for (h = start; h <= numbers.length - 1; h++) {
-    right.push(numbers[h])
-  }
-  let leftSum = 0;
-  for (j = 0; j <= left.length - 1; j++) {
-    leftSum = leftSum + left[j]
-  }
-  let rightSum = 0;
-  for (k = 0; k <= right.length - 1; k++) {
-    rightSum = rightSum + right[k]
-  }
-  if (leftSum === rightSum) {
-    return true;
-  } else {
+  if (count === 0) {
     return false;
   }
   // write your code here
