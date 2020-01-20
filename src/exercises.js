@@ -25,9 +25,10 @@ function endsMeet(values, n) {
       newArray.push(first);
     }
     let end = values.length - 1;
-    let endStart = end - n;
+    let endStart = values.length - n;
     for (e = endStart; e <= end; e++) {
-      newArray.push(e);
+      let addEnd = values[e]
+      newArray.push(addEnd);
     }
     return newArray;
   } else {
@@ -212,6 +213,41 @@ function consecutive(numbers) {
 }
 
 function balance(numbers) {
+  if (!numbers || numbers.length < 2) {
+    return false;
+  }
+  let numeral = true;
+  for (i = 0; i <= numbers.length - 1; i++) {
+    if (isNaN(numbers[i])) {
+      numeral = false;
+    }
+  }
+  if (numeral === false) {
+    return false;
+  }
+  let left = [];
+  let right = [];
+  let divide = (numbers.length - 2) / 2;
+  for (i = 0; i <= divide; i++) {
+    left.push(numbers[i])
+  }
+  let start = divide + 1;
+  for (h = start; h <= numbers.length - 1; h++) {
+    right.push(numbers[h])
+  }
+  let leftSum = 0;
+  for (j = 0; j <= left.length - 1; j++) {
+    leftSum = leftSum + left[j]
+  }
+  let rightSum = 0;
+  for (k = 0; k <= right.length - 1; k++) {
+    rightSum = rightSum + right[k]
+  }
+  if (leftSum === rightSum) {
+    return true;
+  } else {
+    return false;
+  }
   // write your code here
   console.log("test");
 }
